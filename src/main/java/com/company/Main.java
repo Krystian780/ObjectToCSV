@@ -12,14 +12,17 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Map<String, List<Integer>> companies = new HashMap<>();
         List<Integer> list = new ArrayList<>();
+        list.add(50);
+        list.add(100);
+        list.add(150);
 
         companies.put("Google" , list);
         companies.put("Facebook", list);
         companies.put("Tesla", list);
         companies.put("McDonald", list);
         companies.put("Auchan", list);
-        System.out.println(companies);
+        ExcelWriter excelWriter = new ExcelWriter();
+        excelWriter.writeListToAnExcelFile(companies);
     }
-
 
 }
