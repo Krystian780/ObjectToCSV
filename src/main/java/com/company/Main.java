@@ -23,6 +23,7 @@ public class Main {
         companies.put("Auchan", list);
         ExcelWriter excelWriter = new ExcelWriter();
         excelWriter.writeListToAnExcelFile(companies);
+        System.out.println();
     }
 
 }
