@@ -1,8 +1,6 @@
 package com.company;
 
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -23,7 +21,7 @@ public class ExcelWriter {
         spreadsheet = workbook.createSheet("Student Data");
     }
 
-    public void createHeader(){
+    private void createHeader(){
         List<String> headers = new Header().getHeaderNames();
         row = spreadsheet.createRow(0);
         int cellId = 0;
