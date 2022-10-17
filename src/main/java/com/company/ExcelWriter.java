@@ -33,8 +33,7 @@ public class ExcelWriter {
         }
     }
 
-
-    public void injectObjectsAlongWithAssociatedKeyMappingToExcelAsRow(Map<String, List<Integer>> companies)  {
+    public void injectEachObjectsPropertiesIntoACertainConsecutiveRow(Map<String, List<Integer>> companies)  {
         int rowId = 1;
         Set<String> allKeysFromMap = companies.keySet();
         createHeader();
