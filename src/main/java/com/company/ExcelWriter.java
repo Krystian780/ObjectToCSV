@@ -15,8 +15,8 @@ public class ExcelWriter {
     private final XSSFSheet spreadsheet;
     private XSSFRow row;
 
-    public ExcelWriter() throws FileNotFoundException {
-        excelFile = new ExcelFile();
+    public ExcelWriter(String path) throws FileNotFoundException {
+        excelFile = new ExcelFile(path);
         workbook = new XSSFWorkbook();
         spreadsheet = workbook.createSheet("Student Data");
     }

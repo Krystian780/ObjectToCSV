@@ -1,10 +1,7 @@
 package com.company;
 
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
 
@@ -31,13 +28,16 @@ public class Main {
         int x = 0;
         while(x<10){
             try{
-                ExcelWriter excelWriter = new ExcelWriter();
+                System.out.println("Please give file path");
+                Scanner sc1 = new Scanner(System.in);
+                String path = sc1.nextLine();
+                ExcelWriter excelWriter = new ExcelWriter(path);
                 excelWriter.injectEachObjectsPropertiesIntoACertainConsecutiveRow(getListOfCompaniesWithQuarterRevenue());
                 break;
             }
             catch (FileNotFoundException e){
                 System.out.println("FIle could not be found, create correct excel file on Desktop called Student Data");
-                x++;
+                System.out.println("you have " + ++x + "more changes");
             }
         }
     }

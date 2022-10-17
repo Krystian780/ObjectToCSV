@@ -4,18 +4,14 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 public class ExcelFile {
-    FileOutputStream excelFile;
+    private FileOutputStream excelFile;
 
-    public ExcelFile() throws FileNotFoundException {
-        excelFile = new FileOutputStream("C:\\Users\\Krystian\\Desktop\\folder\\excel.xlsx");
+    public ExcelFile(String path) throws FileNotFoundException {
+        excelFile = new FileOutputStream(path);
     }
 
     public FileOutputStream getExcelFile() {
         return excelFile;
-    }
-
-    public void setExcelFile(FileOutputStream excelFile) {
-        this.excelFile = excelFile;
     }
 
 }
