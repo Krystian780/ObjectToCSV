@@ -9,13 +9,7 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args)  {
-        try{
-            ExcelWriter excelWriter = new ExcelWriter();
-            excelWriter.injectEachObjectsPropertiesIntoACertainConsecutiveRow(getListOfCompaniesWithQuarterRevenue());
-        }
-        catch (FileNotFoundException x){
-            System.out.println("FIle could not be found");
-        }
+       startTheProgramme();
     }
 
     public static Map<String, List<Integer>> getListOfCompaniesWithQuarterRevenue(){
@@ -31,6 +25,21 @@ public class Main {
         companies.put("McDonald", revenue);
         companies.put("Auchan", revenue);
         return companies;
+    }
+
+    public static void startTheProgramme(){
+        int x = 0;
+        while(x<10){
+            try{
+                ExcelWriter excelWriter = new ExcelWriter();
+                excelWriter.injectEachObjectsPropertiesIntoACertainConsecutiveRow(getListOfCompaniesWithQuarterRevenue());
+                break;
+            }
+            catch (FileNotFoundException e){
+                System.out.println("FIle could not be found, create correct excel file on Desktop called Student Data");
+                x++;
+            }
+        }
     }
 
 }
