@@ -24,7 +24,7 @@ public class ExcelWriter {
     }
 
     public void createHeader(){
-        List<String> headers = Arrays.asList("Company", "Q1", "Q2", "Q3");
+        List<String> headers = new Header().getHeaderNames();
         row = spreadsheet.createRow(0);
         int cellId = 0;
         for (String obj : headers) {
@@ -34,7 +34,7 @@ public class ExcelWriter {
     }
 
 
-    public void writeListToAnExcelFile(Map<String, List<Integer>> companies) throws IOException {
+    public void injectObjectsAlongWithAssociatedKeyMappingToExcelAsRow(Map<String, List<Integer>> companies)  {
         int rowId = 1;
         Set<String> allKeysFromMap = companies.keySet();
         createHeader();
@@ -47,6 +47,10 @@ public class ExcelWriter {
                 cellOfTheCurrentRow.setCellValue(obj);
             }
         }
-       workbook.write(excelFile.getExcelFile());
+       try {
+           workbook.write(excelFile.getExcelFile());
+       }catch (IOException e){
+           System.out.println("Give correct path");
+       }
     }
 }
