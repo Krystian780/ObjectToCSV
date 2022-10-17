@@ -1,7 +1,6 @@
 package com.company;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,20 +8,29 @@ import java.util.Map;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-        Map<String, List<Integer>> companies = new HashMap<>();
-        List<Integer> list = new ArrayList<>();
-        list.add(50);
-        list.add(100);
-        list.add(150);
+    public static void main(String[] args)  {
+        try{
+            ExcelWriter excelWriter = new ExcelWriter();
+            excelWriter.injectEachObjectsPropertiesIntoACertainConsecutiveRow(getListOfCompaniesWithQuarterRevenue());
+        }
+        catch (FileNotFoundException x){
+            System.out.println("FIle could not be found");
+        }
+    }
 
-        companies.put("Google" , list);
-        companies.put("Facebook", list);
-        companies.put("Tesla", list);
-        companies.put("McDonald", list);
-        companies.put("Auchan", list);
-        ExcelWriter excelWriter = new ExcelWriter();
-        excelWriter.writeListToAnExcelFile(companies);
+    public static Map<String, List<Integer>> getListOfCompaniesWithQuarterRevenue(){
+        Map<String, List<Integer>> companies = new HashMap<>();
+        List<Integer> revenue = new ArrayList<>();
+        revenue.add(50);
+        revenue.add(100);
+        revenue.add(150);
+
+        companies.put("Google" , revenue);
+        companies.put("Facebook", revenue);
+        companies.put("Tesla", revenue);
+        companies.put("McDonald", revenue);
+        companies.put("Auchan", revenue);
+        return companies;
     }
 
 }
